@@ -76,17 +76,17 @@ if (process.env.RESET_DATABASE) {
   seedDatabase()
 }
 
-// Animal.deleteMany().then(() => {
-//   new Animal({ name: 'Alfons', age: 2, isFurry: true }).save()
-//   new Animal({ name: 'Lucy', age: 5, isFurry: false }).save()
-//   new Animal({ name: 'Goldy', age: 10, isFurry: true }).save()
-// })
+Animal.deleteMany().then(() => {
+  new Animal({ name: 'Alfons', age: 2, isFurry: true }).save()
+  new Animal({ name: 'Lucy', age: 5, isFurry: false }).save()
+  new Animal({ name: 'Goldy', age: 10, isFurry: true }).save()
+})
 
 // Start defining your routes here
-// app.get("/", (req, res) => {
-//   fetch('...', { headers: { Authorization: 'my super secret key' } })
-//   res.send(process.env.API_KEY)
-// })
+app.get("/", (req, res) => {
+  fetch('...', { headers: { Authorization: 'my super secret key' } })
+  res.send(process.env.API_KEY)
+})
 
 
 app.get("/animals", async (req, res) => {
