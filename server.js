@@ -90,7 +90,7 @@ const pagination = (data, pageNumber = 1, res) => {
 app.get("/", (req, res) => {
   res.send(
     {
-      "Welcome": "Sweetest API is all about chocolate. 🍫 Enjoy!",
+      "Welcome": "Sweetest API Mongo is all about chocolate. 🍫 Enjoy!",
       "Routes (can all be combined with query parameter: page=page": {
         "/": "Documentation",
         "/endpoints": "All endpoints",
