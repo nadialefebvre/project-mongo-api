@@ -50,8 +50,8 @@ const House = mongoose.model('House', {
 })
 
 // watch again codealong about that, around 10:00
-if (process.env.RESET_DATABASE) {
-  console.log("resetting database!")
+// if (process.env.RESET_DATABASE) {
+  // console.log("resetting database!")
 
   const seedDatabase = async () => {
     await Animal.deleteMany()
@@ -74,7 +74,7 @@ if (process.env.RESET_DATABASE) {
 
   }
   seedDatabase()
-}
+// }
 
 Animal.deleteMany().then(() => {
   new Animal({ name: 'Alfons', age: 2, isFurry: true }).save()
