@@ -110,98 +110,41 @@ app.get("/", (req, res) => {
         "/chocolates/id/${id}": "Get a chocolate by ID."
       },
 
-      "Query parameters (can be combined together)": {
+      "Query parameters (can be combined together and the whole expression must match)": {
         "/chocolates?company=string": "Filter the chocolates from a specific company.",
         "/chocolates?company_location=string": "Filter the chocolates from a specific company location.",
-        // "/chocolates?review_date=number": "Filter the chocolates from a specific review date.",
+        "/chocolates?review_date=number": "Filter the chocolates from a specific review date.",
         "/chocolates?country_of_bean_origin=string": "Filter the chocolates from a specific country of bean origin.",
-        // "/chocolates?count_of_ingredients=number": "Filter the chocolates with a specific count of ingredients.",
-        // "/chocolates?has_cocoa_butter=boolean": "Filter the chocolates with cocoa butter or not.",
-        // "/chocolates?has_vanilla=boolean": "Filter the chocolates with vanilla or not.",
-        // "/chocolates?has_lecithin=boolean": "Filter the chocolates with lecithin or not.",
-        // "/chocolates?has_sugar=boolean": "Filter the chocolates with sugar or not.",
-        // "/chocolates?has_other_sweetener=boolean": "Filter the chocolates with other sweetener or not.",
+        "/chocolates?count_of_ingredients=number": "Filter the chocolates with a specific count of ingredients.",
+        "/chocolates?has_cocoa_butter=boolean": "Filter the chocolates with cocoa butter or not.",
+        "/chocolates?has_vanilla=boolean": "Filter the chocolates with vanilla or not.",
+        "/chocolates?has_lecithin=boolean": "Filter the chocolates with lecithin or not.",
+        "/chocolates?has_sugar=boolean": "Filter the chocolates with sugar or not.",
+        "/chocolates?has_other_sweetener=boolean": "Filter the chocolates with other sweetener or not.",
         "/chocolates?first_taste=string": "Filter the chocolates with a first taste that includes the string.",
         "/chocolates?second_taste=string": "Filter the chocolates with a second taste that includes the string.",
         "/chocolates?third_taste=string": "Filter the chocolates with a third taste that includes the string.",
         "/chocolates?fourth_taste=string": "Filter the chocolates with a fourth taste that includes the string.",
-        // "Combination example": "/chocolates?company_location=France&review_date=2019&has_vanilla=true"
+        "Combination example": "/chocolates?company_location=France&review_date=2019&has_vanilla=true"
       }
     }
   )
 })
 
-// -------- can't get it to work when combining boolean and number together or with others --------
 app.get("/chocolates", async (req, res) => {
-  const {
-    company,
-    company_location,
-    review_date,
-    country_of_bean_origin,
-    count_of_ingredients,
-    has_cocoa_butter,
-    has_vanilla,
-    has_lecithin,
-    has_salt,
-    has_sugar,
-    has_other_sweetener,
-    first_taste,
-    second_taste,
-    third_taste,
-    fourth_taste,
-    page
-  } = req.query
-
-
-  // -------- how to implement the following part? --------
-
-  // if (company === "" ||
-  // company_location === "" ||
-  // review_date === "" ||
-  // country_of_bean_origin === "" ||
-  // count_of_ingredients === "" ||
-  // has_cocoa_butter === "" ||
-  // has_vanilla === "" ||
-  // has_lecithin === "" ||
-  // has_salt === "" ||
-  // has_sugar === "" ||
-  // has_other_sweetener === "" ||
-  // first_taste === "" ||
-  // second_taste === "" ||
-  // third_taste === "" ||
-  // fourth_taste === "" ||
-  //   page === "") {
-  //   res.status(400).json({
-  //     success: false,
-  //     status_code: 400,
-  //     message: "At least one of the query parameters in the path has no value, please make sure that you use property=value."
-  //   })
-  // }
-
-
-
-
-// --------- how to fix it with boolean and numbers???? ---------
+  const { page } = req.query
 
   try {
-    const allChocolatesData = await Chocolate.find({
-      // company: new RegExp(company, "i"),
-      // company_location: new RegExp(company_location, "i"),
-      // review_date: JSON.parse(review_date),
-      // country_of_bean_origin: new RegExp(country_of_bean_origin, "i"),
-      // count_of_ingredients: JSON.parse(count_of_ingredients),
-      // has_cocoa_butter: has_cocoa_butter,
-      // has_vanilla: JSON.parse(has_vanilla),
-      // has_lecithin: JSON.parse(has_lecithin),
-      // has_salt: JSON.parse(has_salt),
-      // has_sugar: JSON.parse(has_sugar),
-      has_other_sweetener: JSON.parse(has_other_sweetener),
-      // first_taste: new RegExp(first_taste, "i"),
-      // second_taste: new RegExp(second_taste, "i"),
-      // third_taste: new RegExp(third_taste, "i"),
-      // fourth_taste: new RegExp(fourth_taste, "i"),
-      page: page,
+    const requestKeysArray = Object.keys(req.query)
+    const searchCriteriaObject = {}
+    requestKeysArray.map(singleKey => {
+      if (singleKey != "page") {
+        searchCriteriaObject[singleKey] = req.query[singleKey]
+        // searchCriteriaObject[singleKey] = new RegExp(req.query[singleKey], "i") // Code to make it ignore the case (from townhall with Daniel) but it's not working, it sends me to catch
+      }
     })
+
+    const allChocolatesData = await Chocolate.find(searchCriteriaObject)
 
     res.status(200).json(pagination(allChocolatesData, page, res))
 

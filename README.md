@@ -1,10 +1,10 @@
 # Week 18: Project Mongo API
 
-This week's project is to start using a database with MongoDB to store data and retrieve data from it, and use that data to produce a RESTful API.
+This week's project was to start using a database with MongoDB to store data and retrieve data from it, and use that data to produce a RESTful API.
 
 ## The problem
 
-This second project with backend was still quite easy. I used the same dataset as for express-api project, but "converted" it using MongoDB and mongoose model. I have an issue with filtering the properties with number/boolean values in query parameters but I hope to be able to make it all work..
+This second project with backend was still quite easy. I used the same dataset as for express-api project, but "converted" it using MongoDB and mongoose model. I had an issue with filtering the properties with number/boolean values in query parameters (and many combined) but I made it work with help. Query parameters must be entered with the right case, because I couldn't make it to ignore the case with a regexp and I had to move on and let it go.
 
 Endpoints (can all be combined with query parameter: **page=page**):
 * "**/**": Documentation,
@@ -24,17 +24,17 @@ With path parameters:
 * "**/chocolates/name/:name**": Get a chocolate by name.
 * "**/chocolates/id/:id**": Get a chocolate by ID.
 
-Many query parameters can be used alone or combined together):
+Many query parameters can be used alone or combined together:
 * "**/chocolates?company=string**": "Filter the chocolates from a specific company.",
 * "**/chocolates?company_location=string**": "Filter the chocolates from a specific company location.",
-* "/chocolates?review_date=number": "Filter the chocolates from a specific review date.", **needs to be fixed**
+* "**/chocolates?review_date=number**": "Filter the chocolates from a specific review date.", **needs to be fixed**
 * "**/chocolates?country_of_bean_origin=string**": "Filter the chocolates from a specific country of bean origin.",
-* "/chocolates?count_of_ingredients=number": "Filter the chocolates with a specific count of ingredients.", **needs to be fixed**
-* "/chocolates?has_cocoa_butter=boolean": "Filter the chocolates with cocoa butter or not.", **needs to be fixed**
-* "/chocolates?has_vanilla=boolean": "Filter the chocolates with vanilla or not.", **needs to be fixed**
-* "/chocolates?has_lecithin=boolean": "Filter the chocolates with lecithin or not.", **needs to be fixed**
-* "/chocolates?has_sugar=boolean": "Filter the chocolates with sugar or not.", **needs to be fixed**
-* "/chocolates?has_other_sweetener=boolean": "Filter the chocolates with other sweetener or not.", **needs to be fixed**
+* "**/chocolates?count_of_ingredients=number**": "Filter the chocolates with a specific count of ingredients.", **needs to be fixed**
+* "**/chocolates?has_cocoa_butter=boolean**": "Filter the chocolates with cocoa butter or not.", **needs to be fixed**
+* "**/chocolates?has_vanilla=boolean**": "Filter the chocolates with vanilla or not.", **needs to be fixed**
+* "**/chocolates?has_lecithin=boolean**": "Filter the chocolates with lecithin or not.", **needs to be fixed**
+* "**/chocolates?has_sugar=boolean**": "Filter the chocolates with sugar or not.", **needs to be fixed**
+* "**/chocolates?has_other_sweetener=boolean**": "Filter the chocolates with other sweetener or not.", **needs to be fixed**
 * "**/chocolates?first_taste=string**": "Filter the chocolates with a first taste that includes the string.",
 * "**/chocolates?second_taste=string**": "Filter the chocolates with a second taste that includes the string.",
 * "**/chocolates?third_taste=string**": "Filter the chocolates with a third taste that includes the string.",
