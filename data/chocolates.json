@@ -1,6 +1,6 @@
 [
   {
-    "company": 5150,
+    "company": "5150",
     "company_location": "U.S.A",
     "review_date": 2019,
     "country_of_bean_origin": "Madagascar",
@@ -20,7 +20,7 @@
     "fourth_taste": ""
   },
   {
-    "company": 5150,
+    "company": "5150",
     "company_location": "U.S.A",
     "review_date": 2019,
     "country_of_bean_origin": "Dominican republic",
@@ -40,7 +40,7 @@
     "fourth_taste": ""
   },
   {
-    "company": 5150,
+    "company": "5150",
     "company_location": "U.S.A",
     "review_date": 2019,
     "country_of_bean_origin": "Tanzania",

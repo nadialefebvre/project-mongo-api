@@ -131,20 +131,20 @@ app.get("/", (req, res) => {
   )
 })
 
-// cant get it to work when combining boolean and number together or with others
+// -------- can't get it to work when combining boolean and number together or with others --------
 app.get("/chocolates", async (req, res) => {
   const {
     company,
     company_location,
-    // review_date,
+    review_date,
     country_of_bean_origin,
-    // count_of_ingredients,
-    // has_cocoa_butter,
-    // has_vanilla,
-    // has_lecithin,
-    // has_salt,
-    // has_sugar,
-    // has_other_sweetener,
+    count_of_ingredients,
+    has_cocoa_butter,
+    has_vanilla,
+    has_lecithin,
+    has_salt,
+    has_sugar,
+    has_other_sweetener,
     first_taste,
     second_taste,
     third_taste,
@@ -153,7 +153,7 @@ app.get("/chocolates", async (req, res) => {
   } = req.query
 
 
-  // how to implement the following part?
+  // -------- how to implement the following part? --------
 
   // if (company === "" ||
   // company_location === "" ||
@@ -178,23 +178,28 @@ app.get("/chocolates", async (req, res) => {
   //   })
   // }
 
+
+
+
+// --------- how to fix it with boolean and numbers???? ---------
+
   try {
     const allChocolatesData = await Chocolate.find({
-      company: new RegExp(company, "i"),
-      company_location: new RegExp(company_location, "i"),
-      // review_date: { $eq: review_date },
-      country_of_bean_origin: new RegExp(country_of_bean_origin, "i"),
-      // count_of_ingredients: { $eq: count_of_ingredients },
+      // company: new RegExp(company, "i"),
+      // company_location: new RegExp(company_location, "i"),
+      // review_date: JSON.parse(review_date),
+      // country_of_bean_origin: new RegExp(country_of_bean_origin, "i"),
+      // count_of_ingredients: JSON.parse(count_of_ingredients),
       // has_cocoa_butter: has_cocoa_butter,
-      // has_vanilla: has_vanilla,
-      // has_lecithin: has_lecithin,
-      // has_salt: has_salt,
-      // has_sugar: has_sugar,
-      // has_other_sweetener: has_other_sweetener,
-      first_taste: new RegExp(first_taste, "i"),
-      second_taste: new RegExp(second_taste, "i"),
-      third_taste: new RegExp(third_taste, "i"),
-      fourth_taste: new RegExp(fourth_taste, "i"),
+      // has_vanilla: JSON.parse(has_vanilla),
+      // has_lecithin: JSON.parse(has_lecithin),
+      // has_salt: JSON.parse(has_salt),
+      // has_sugar: JSON.parse(has_sugar),
+      has_other_sweetener: JSON.parse(has_other_sweetener),
+      // first_taste: new RegExp(first_taste, "i"),
+      // second_taste: new RegExp(second_taste, "i"),
+      // third_taste: new RegExp(third_taste, "i"),
+      // fourth_taste: new RegExp(fourth_taste, "i"),
       page: page,
     })
 
