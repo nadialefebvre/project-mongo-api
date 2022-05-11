@@ -140,7 +140,6 @@ app.get("/chocolates", async (req, res) => {
     requestKeysArray.map(singleKey => {
       if (singleKey != "page") {
         searchCriteriaObject[singleKey] = req.query[singleKey]
-        // searchCriteriaObject[singleKey] = new RegExp(req.query[singleKey], "i") // Code to make it ignore the case (from townhall with Daniel) but it's not working, it sends me to catch
       }
     })
 
