@@ -1,10 +1,3 @@
-# Weekly project for Technigo's bootcamp, week 18
-Task: build an API with MongoDB database
-
-Tech: JavaScript, API, Node.js, Express, MongoDB
-
-----
-
 # Week 18: Project Mongo API
 
 This week's project was to start using a database with MongoDB to store data and retrieve data from it, and use that data to produce a RESTful API.
