@@ -1,4 +1,6 @@
-# Week 18: Project Mongo API
+# Project Sweetest API Mongo
+
+Weekly project for Technigo's bootcamp, week 18: build an API with MongoDB database
 
 This week's project was to start using a database with MongoDB to store data and retrieve data from it, and use that data to produce a RESTful API.
 
