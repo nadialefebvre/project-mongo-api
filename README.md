@@ -8,7 +8,7 @@ This week's project was to start using a database with MongoDB to store data and
 
 This second project with backend was still quite easy. I used the same dataset as for express-api project, but "converted" it using MongoDB and mongoose model. I had an issue with filtering the properties with number/boolean values in query parameters (and many combined) but I made it work with help. Query parameters must be entered with the right case, because I couldn't make it to ignore the case with a regexp and I had to move on and let it go.
 
-Endpoints (can all be combined with query parameter: **page=page**):
+Endpoints (can all be combined with query parameter: **page=number**):
 * "**/**": Documentation,
 * "**/endpoints**": All endpoints
 * "**/chocolates**": Get all chocolates.
@@ -45,6 +45,6 @@ Many query parameters can be used alone or combined together:
 
 ## View it live
 
-Project deployed here: [Sweetest API Mongo](https://sweetest-api-mongo.herokuapp.com/)
+Project deployed here: [Sweetest API Mongo](https://sweetest-api-mongo-kijk33idxa-lz.a.run.app/)
 
-All endpoints: https://sweetest-api-mongo.herokuapp.com/endpoints
+All endpoints: https://sweetest-api-mongo-kijk33idxa-lz.a.run.app/endpoints
