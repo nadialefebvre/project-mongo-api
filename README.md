@@ -48,3 +48,7 @@ Many query parameters can be used alone or combined together:
 Project deployed here: [Sweetest API Mongo](https://sweetest-api-mongo-kijk33idxa-lz.a.run.app/)
 
 All endpoints: https://sweetest-api-mongo-kijk33idxa-lz.a.run.app/endpoints
+
+<div align="center">
+  <img src="screenshot.jpg" />
+</div>
