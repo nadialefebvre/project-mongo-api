@@ -1,10 +1,18 @@
 # Project Sweetest API Mongo
 
-Weekly project for Technigo's bootcamp, week 18: build an API with MongoDB database
+Weekly project for Technigo's bootcamp, week 18: build an API with MongoDB database (May 2022)
 
-This week's project was to start using a database with MongoDB to store data and retrieve data from it, and use that data to produce a RESTful API.
+## Tech stack
+
+- JavaScript
+- Node.js
+- Express
+- MongoDB
+- API
 
 ## The problem
+
+This week's project was to start using a database with MongoDB to store data and retrieve data from it, and use that data to produce a RESTful API.
 
 This second project with backend was still quite easy. I used the same dataset as for express-api project, but "converted" it using MongoDB and mongoose model. I had an issue with filtering the properties with number/boolean values in query parameters (and many combined) but I made it work with help. Query parameters must be entered with the right case, because I couldn't make it to ignore the case with a regexp and I had to move on and let it go.
 
